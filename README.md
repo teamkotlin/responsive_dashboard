@@ -1,6 +1,11 @@
 # admin_dashboard
 
-A new Flutter project.
+Flutter Desktop Tablet & Mobile Responsive Admin Dashboard
+
+![Frame 1](https://user-images.githubusercontent.com/99969869/235565970-496809e4-2291-47ee-aa30-d4a7bee21383.png)
+![2Capture](https://user-images.githubusercontent.com/99969869/235565985-69d2a5dc-6d21-42e6-8fd9-c624050f2ba0.PNG)
+![Capture](https://user-images.githubusercontent.com/99969869/235565991-327a03c0-2675-4ce6-a91e-a16802182540.PNG)
+
 
 ## Getting Started
 
