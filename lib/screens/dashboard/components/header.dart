@@ -1,6 +1,9 @@
 import 'package:admin_dashboard/constants.dart';
+import 'package:admin_dashboard/controllers/MenuAppController.dart';
+import 'package:admin_dashboard/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 
 class Header extends StatelessWidget {
   const Header({Key? key}) : super(key: key);
@@ -9,11 +12,16 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(
-          "Dashboard",
-          style: Theme.of(context).textTheme.headline6,
-        ),
-        const Spacer(flex: 2,),
+        if (!Responsive.isDesktop(context))
+          IconButton(
+              onPressed: context.read<MenuAppController>().controlMenu,
+              icon: const Icon(Icons.menu)),
+        if (Responsive.isDesktop(context))
+          Text(
+            "Dashboard",
+            style: Theme.of(context).textTheme.headline6,
+          ),
+        if (!Responsive.isMobile(context)) const Spacer(),
         const Expanded(child: SearchField()),
         const ProfileSection()
       ],
@@ -67,11 +75,12 @@ class ProfileSection extends StatelessWidget {
             "assets/images/profile_pic.png",
             height: 35,
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: defaultPadding, vertical: defaultPadding / 2),
-            child: Text("Angelina Joli"),
-          ),
+          if (!Responsive.isMobile(context))
+            const Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: defaultPadding, vertical: defaultPadding / 2),
+              child: Text("Angelina Joli"),
+            ),
           const Icon(Icons.keyboard_arrow_down)
         ],
       ),
